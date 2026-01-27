@@ -22,4 +22,8 @@
      .card{
     @apply bg-white rounded-xl shadow-sm border border-gray-200 transition-all duration-200;
   }
+
+  .delete-task{
+    @apply bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95
+  }
 }

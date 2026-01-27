@@ -67,6 +67,17 @@ const MainPage = () => {
     const pendingTask = (totalTask - completeTask);
 
 
+//delete task
+    const deleteTask = (taskId) => {
+        const isConfirm = window.confirm("Are you sure you want to delete this task?");
+        if(isConfirm){
+            setTask(task.filter(item => item.id !== taskId));
+        alert("Task deleted successfully!");
+        }
+        
+    };
+
+
     return (
         <div className="max-w-4xl mx-auto ">
             <Header/>
@@ -92,7 +103,7 @@ const MainPage = () => {
 
            {
             totalFilterTask > 0 ? (
-                <TaskList task ={filteredTask} onToggle={checkbox}/>
+                <TaskList task ={filteredTask} onToggle={checkbox} deleteTask={deleteTask}/>
             ): ""
            }
 
