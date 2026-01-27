@@ -63,6 +63,8 @@ const MainPage = () => {
   //calculate task
     const totalTask = task.length;
     const totalFilterTask = filteredTask.length;
+    const completeTask = task.filter(item => item.completed).length;
+    const pendingTask = (totalTask - completeTask);
 
 
     return (
@@ -75,6 +77,15 @@ const MainPage = () => {
            {
             totalTask > 0 && (
                 <FilterTask
+                currentFilter={filter}
+                setFilter={setFilter}
+                counts={
+                    {
+                        all:totalTask,
+                        pending:pendingTask,
+                        completed:completeTask
+                    }
+                }
                 />
             )
            }

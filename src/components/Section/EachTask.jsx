@@ -2,7 +2,7 @@
 
 const EachTask = ({item, onToggle , style}) => {
     return (
-        <div className="each-task p-3 sm:p-4 hover:shadow-md group" style={style}>
+        <div className="card hover:border-blue-500 p-3 sm:p-4 hover:shadow-md group" style={style}>
         <div className="flex items-start sm:text-center gap-3 sm:gap-4">
              
              {/* checkbox for completed */}
@@ -28,12 +28,12 @@ const EachTask = ({item, onToggle , style}) => {
             </button>
 
 
-            
+
             {/* task text */}
 
             <div className=" min-w-0">
 
-                <p className={`text-sm sm:text-base transition-all duration-200 break-words ${item.completed? "text-slate-400 line-through": "text-gray-900"}`}>
+                <p className={`text-sm sm:text-base text-left transition-all duration-200 break-words ${item.completed? "text-slate-400 line-through": "text-gray-900"}`}>
                  {item.text}
                 </p>
                 <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5 sm:mt-1" >
