@@ -18,4 +18,8 @@
     .input-task {
         @apply border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition-all duration-300
     }
+
+     .each-task {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 transition-all duration-200;
+  }
 }
