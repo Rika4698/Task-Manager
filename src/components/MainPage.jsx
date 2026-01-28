@@ -43,6 +43,7 @@ const MainPage = () => {
     }, [task]);
 
 
+    // filter task with status
     const filterTask = () => {
         switch (filter) {
             case 'completed':
@@ -57,6 +58,7 @@ const MainPage = () => {
 
     const filteredTask = filterTask();
 
+    // toggle check as complete or incomplete
     const checkbox = (taskId) => {
         setTask(task.map(item => item.id === taskId ? { ...item, completed: !item.completed } : item));
     };

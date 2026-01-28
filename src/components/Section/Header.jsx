@@ -1,7 +1,9 @@
-import React from 'react';
 
 const Header = ({ totalTask, completedTask, pendingTask }) => {
     const completeRate = totalTask > 0 ? Math.round((completedTask / totalTask) * 100) : 0;
+
+
+    
     return (
         <header className='text-center mb-8 sm:mb-10 md:mb-12 '>
             <h1 className='font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-blue-800 mb-2 px-2'>Task Manager</h1>
