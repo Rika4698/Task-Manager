@@ -23,7 +23,7 @@ const MainPage = () => {
         setTask([newTask, ...task]);
     };
 
-
+// Load tasks from localStorage
     useEffect(() => {
         const saveTask = localStorage.getItem('task');
 
@@ -37,7 +37,7 @@ const MainPage = () => {
     }, []);
 
 
-
+// Save tasks to localStorage
     useEffect(() => {
         localStorage.setItem('task', JSON.stringify(task));
     }, [task]);
