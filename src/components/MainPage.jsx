@@ -80,7 +80,11 @@ const MainPage = () => {
 
     return (
         <div className="max-w-4xl mx-auto ">
-            <Header/>
+            <Header totalTask={totalTask}
+            completedTask={completeTask}
+            pendingTask = {pendingTask}
+
+            />
 
             <div className="space-y-4 sm:space-y-6">
            <AddTask addTask={addTask}/>

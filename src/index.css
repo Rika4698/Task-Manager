@@ -12,7 +12,7 @@
 
 @layer components {
     .add-task{
-        @apply border border-blue-800 hover:border-blue-900 bg-gradient-to-bl from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium
+        @apply border border-blue-800 hover:border-blue-900 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium
     }
 
     .input-task {

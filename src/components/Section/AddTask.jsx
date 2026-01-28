@@ -17,7 +17,7 @@ const AddTask = ({addTask}) => {
 
 
     return (
-        <div>
+        <div className="card p-4 sm:p-5 md:p-6">
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 md:gap-3">
 
