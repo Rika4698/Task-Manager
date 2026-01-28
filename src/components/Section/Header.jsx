@@ -41,7 +41,7 @@ const Header = ({ totalTask, completedTask, pendingTask }) => {
                             <div className='h-12 w-px bg-gray-200' />
 
                             <div className='text-center min-w-[60px]'>
-                                <div className='text-xl sm:text-2xl font-bold text-blue-600'>
+                                <div className='text-xl sm:text-2xl font-bold text-green-600'>
                                     {completedTask}
                                 </div>
                                 <div className='text-gray-400 mt-1 text-xs sm:text-sm font-medium'>Completed</div>
