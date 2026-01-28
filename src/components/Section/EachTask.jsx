@@ -1,8 +1,8 @@
 
 
-const EachTask = ({ item, onToggle, onDelete, style }) => {
+const EachTask = ({ item, onToggle, onDelete }) => {
     return (
-        <div className="card hover:border-blue-500 p-3 sm:p-4 hover:shadow-md group" style={style}>
+        <div className="card hover:border-blue-500 p-3 sm:p-4 hover:shadow-md " >
             <div className="flex items-start sm:items-center gap-3 sm:gap-4">
 
                 {/* checkbox for completed */}

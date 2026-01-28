@@ -4,6 +4,7 @@ import AddTask from "./Section/AddTask";
 import Header from "./Section/Header";
 import FilterTask from "./Section/FilterTask";
 import TaskList from "./Section/TaskList";
+import EmptySection from "./Section/EmptySection";
 
 
 const MainPage = () => {
@@ -11,25 +12,25 @@ const MainPage = () => {
     const [filter, setFilter] = useState("all");
 
 
-// Add new task
+    // Add new task
     const addTask = (text) => {
-        const newTask ={
-            id:Date.now(),
-            text:text,
-            completed:false,
+        const newTask = {
+            id: Date.now(),
+            text: text,
+            completed: false,
             createdAt: new Date().toISOString()
         };
         setTask([newTask, ...task]);
     };
-    
 
-    useEffect (() => {
+
+    useEffect(() => {
         const saveTask = localStorage.getItem('task');
 
-        if(saveTask){
-            try{
+        if (saveTask) {
+            try {
                 setTask(JSON.parse(saveTask));
-            } catch (error){
+            } catch (error) {
                 console.log('Error loading task from local storage:', error);
             }
         }
@@ -43,13 +44,13 @@ const MainPage = () => {
 
 
     const filterTask = () => {
-        switch (filter){
+        switch (filter) {
             case 'completed':
                 return task.filter(task => task.completed);
             case 'pending':
                 return task.filter(task => !task.completed);
             default:
-                return task;    
+                return task;
 
         }
     };
@@ -57,63 +58,66 @@ const MainPage = () => {
     const filteredTask = filterTask();
 
     const checkbox = (taskId) => {
-        setTask(task.map (item => item.id === taskId ? {...item, completed: !item.completed} : item));
+        setTask(task.map(item => item.id === taskId ? { ...item, completed: !item.completed } : item));
     };
 
-  //calculate task
+    //calculate task
     const totalTask = task.length;
     const totalFilterTask = filteredTask.length;
     const completeTask = task.filter(item => item.completed).length;
     const pendingTask = (totalTask - completeTask);
 
 
-//delete task
+    //delete task
     const deleteTask = (taskId) => {
         const isConfirm = window.confirm("Are you sure you want to delete this task?");
-        if(isConfirm){
+        if (isConfirm) {
             setTask(task.filter(item => item.id !== taskId));
-        alert("Task deleted successfully!");
+            alert("Task deleted successfully!");
         }
-        
+
     };
 
 
     return (
         <div className="max-w-4xl mx-auto ">
             <Header totalTask={totalTask}
-            completedTask={completeTask}
-            pendingTask = {pendingTask}
+                completedTask={completeTask}
+                pendingTask={pendingTask}
 
             />
 
             <div className="space-y-4 sm:space-y-6">
-           <AddTask addTask={addTask}/>
+                <AddTask addTask={addTask} />
 
-           {
-            totalTask > 0 && (
-                <FilterTask
-                currentFilter={filter}
-                setFilter={setFilter}
-                counts={
-                    {
-                        all:totalTask,
-                        pending:pendingTask,
-                        completed:completeTask
-                    }
+                {
+                    totalTask > 0 && (
+                        <FilterTask
+                            currentFilter={filter}
+                            setFilter={setFilter}
+                            counts={
+                                {
+                                    all: totalTask,
+                                    pending: pendingTask,
+                                    completed: completeTask
+                                }
+                            }
+                        />
+                    )
                 }
-                />
-            )
-           }
 
-           {
-            totalFilterTask > 0 ? (
-                <TaskList task ={filteredTask} onToggle={checkbox} deleteTask={deleteTask}/>
-            ): ""
-           }
+                {
+                    totalFilterTask > 0 ? (
+                        <TaskList task={filteredTask} onToggle={checkbox} deleteTask={deleteTask} />
+                    ) : totalTask > 0 ? (
+                        <EmptySection message={`No ${filter} tasks`} label={`You don't have any ${filter} tasks.`} />
+
+                    ) : (<EmptySection message="No Task Yet" label="Start by adding your first task" />)
+                }
 
 
             </div>
-            
+
         </div>
     );
 };
