@@ -1,6 +1,9 @@
 # Task Manager Application
 
-### **Overview:** A simple , elegant and fully functional task manager application built with React.js and Tailwind CSS. This application demonstrates React including functional components, hooks, state management and localStorage persistence.
+## **Overview:** 
+### A simple , elegant and fully functional task manager application built with React.js and Tailwind CSS. This application demonstrates React including functional components, hooks, state management and localStorage persistence.
+
+---
 
 ## **Live link:** https://task-manager-five-xi-24.vercel.app/
 
